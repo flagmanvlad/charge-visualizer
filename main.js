@@ -1,12 +1,9 @@
 const batteryTotal = 73;
-const efficiency = 0.95;
-
 const voltInput = document.getElementById("voltInput");
 const ampInput = document.getElementById("ampInput");
 const batteryInput = document.getElementById("batteryInput");
 const batteryPercent = document.getElementById("batteryPercent");
 
-const percentCharge = document.getElementById("percentCharge");
 const rangeChill = document.getElementById("rangeChill");
 const rangeNormal = document.getElementById("rangeNormal");
 const rangeSport = document.getElementById("rangeSport");
@@ -41,15 +38,18 @@ function buildTable() {
 function highlightCell() {
   const amp = parseInt(ampInput.value);
   const volt = parseInt(voltInput.value);
+  const scrollContainer = document.getElementById("tableScroll");
 
   document.querySelectorAll("td").forEach(cell => {
     const a = parseInt(cell.getAttribute("data-amp"));
     const v = parseInt(cell.getAttribute("data-volt"));
     if (a === amp && v === volt) {
       cell.classList.add("highlight");
-      void cell.offsetWidth; // restart animation
+      void cell.offsetWidth; // reset animation
       cell.classList.remove("highlight");
       setTimeout(() => cell.classList.add("highlight"), 0);
+      // Auto scroll
+      cell.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
     } else {
       cell.classList.remove("highlight");
     }
@@ -58,23 +58,20 @@ function highlightCell() {
 
 function updateFromkWh() {
   const kWh = parseFloat(batteryInput.value.replace(",", "."));
-  if (!kWh || kWh <= 0 || kWh > batteryTotal) return;
-
-  const Wh = kWh * 1000;
+  if (!kWh || kWh < 0 || kWh > batteryTotal) return;
   batteryPercent.value = Math.round((kWh / batteryTotal) * 100);
-
-  rangeChill.textContent = Math.round(Wh / 180) + " км";
-  rangeNormal.textContent = Math.round(Wh / 220) + " км";
-  rangeSport.textContent = Math.round(Wh / 250) + " км";
+  updateRange(kWh);
 }
 
 function updateFromPercent() {
   const percent = parseFloat(batteryPercent.value.replace(",", "."));
   if (!percent || percent < 0 || percent > 100) return;
-
   const kWh = (percent / 100) * batteryTotal;
   batteryInput.value = kWh.toFixed(1);
+  updateRange(kWh);
+}
 
+function updateRange(kWh) {
   const Wh = kWh * 1000;
   rangeChill.textContent = Math.round(Wh / 180) + " км";
   rangeNormal.textContent = Math.round(Wh / 220) + " км";
