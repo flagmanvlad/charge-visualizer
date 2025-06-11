@@ -20,12 +20,18 @@ body {
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  flex: 1 1 500px;
   box-sizing: border-box;
+  flex: 1 1 500px;
 }
 
-h2 {
-  margin-top: 0;
+.left-side {
+  flex: 1 1 50%;
+  min-width: 400px;
+}
+
+.right-side {
+  flex: 1 1 40%;
+  min-width: 300px;
 }
 
 label {
@@ -73,21 +79,22 @@ small {
   margin-bottom: 10px;
 }
 
-.table-scroll {
-  max-width: 100%;
-  overflow-x: auto;
-  margin-top: 20px;
+.table-container {
+  max-height: 350px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fefefe;
 }
 
-.table-wrapper {
-  min-width: 800px;
+.table-scroll {
+  overflow-x: auto;
 }
 
 table {
   border-collapse: collapse;
   min-width: 800px;
   font-size: 0.9rem;
-  scroll-snap-type: x mandatory;
 }
 
 th, td {
@@ -95,7 +102,6 @@ th, td {
   padding: 6px 10px;
   text-align: center;
   white-space: nowrap;
-  scroll-snap-align: start;
 }
 
 .highlight {
