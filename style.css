@@ -89,3 +89,43 @@ th, td {
   background-color: #d8ffd8;
   font-weight: bold;
 }
+.table-wrapper {
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 6px;
+  background: #fefefe;
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 800px;
+  font-size: 0.9rem;
+  scroll-snap-type: x mandatory;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 6px 10px;
+  text-align: center;
+  white-space: nowrap;
+  scroll-snap-align: start;
+}
+
+.highlight {
+  background-color: #d8ffd8;
+  font-weight: bold;
+  animation: flash 0.5s ease-in-out;
+}
+
+@keyframes flash {
+  0%   { background-color: #ffffb3; }
+  100% { background-color: #d8ffd8; }
+}
+
+.battery-info {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 10px;
+}
