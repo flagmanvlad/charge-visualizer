@@ -114,3 +114,6 @@ th, td {
   0%   { background-color: #ffffc0; }
   100% { background-color: #d8ffd8; }
 }
+table {
+  min-width: 700px;
+}
