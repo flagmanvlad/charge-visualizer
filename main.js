@@ -98,3 +98,26 @@ buildTable();
 loadInputs();
 highlightCell();
 updateRange();
+
+const batteryTotal = 73; // Tesla Y LR 2020
+
+function updateRange() {
+  const input = batteryInput.value.replace(",", ".");
+  const kWh = parseFloat(input);
+  const Wh = kWh * 1000;
+  const percent = Math.round((kWh / batteryTotal) * 100);
+
+  if (!kWh || kWh <= 0 || kWh > batteryTotal) {
+    percentCharge.textContent = "–";
+    rangeChill.textContent = "–";
+    rangeNormal.textContent = "–";
+    rangeSport.textContent = "–";
+    return;
+  }
+
+  percentCharge.textContent = `${kWh.toFixed(1)} / ${batteryTotal} кВт·год (${percent}%)`;
+  rangeChill.textContent = Math.round(Wh / 180) + " км";
+  rangeNormal.textContent = Math.round(Wh / 220) + " км";
+  rangeSport.textContent = Math.round(Wh / 250) + " км";
+}
+
