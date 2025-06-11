@@ -1,53 +1,91 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  font-family: "Segoe UI", sans-serif;
+  background: #f3f5f8;
   margin: 0;
   padding: 20px;
+  color: #222;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
 }
 
-section {
+.card {
   background: white;
-  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  flex: 1 1 400px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  flex: 1 1 500px;
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-top: 0;
 }
 
 label {
   display: block;
-  margin-bottom: 10px;
-  font-weight: bold;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 input {
   font-size: 1rem;
-  padding: 5px;
+  padding: 8px 12px;
+  margin-top: 6px;
   width: 100%;
-  max-width: 120px;
-  margin-top: 4px;
+  max-width: 150px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   display: block;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+small {
+  display: block;
+  color: #777;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.range-widget p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.note {
   margin-top: 20px;
+  font-size: 0.9rem;
+  color: #444;
+  background: #f0f0f0;
+  padding: 6px 10px;
+  border-left: 4px solid #ccc;
+  border-radius: 4px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 800px;
   font-size: 0.9rem;
 }
 
 th, td {
-  border: 1px solid #ccc;
-  padding: 6px;
+  border: 1px solid #ddd;
+  padding: 6px 10px;
   text-align: center;
+  white-space: nowrap;
 }
 
 .highlight {
-  background-color: #c0ffc0;
+  background-color: #d8ffd8;
   font-weight: bold;
 }
