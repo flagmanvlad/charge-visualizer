@@ -117,3 +117,16 @@ th, td {
 table {
   min-width: 700px;
 }
+
+.watts-display {
+  font-size: 64px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.watts-display .unit {
+  font-size: 28px;
+  font-weight: 400;
+  margin-left: 8px;
+}
