@@ -1,4 +1,5 @@
 const batteryTotal = 73;
+const wattsValue = document.getElementById("wattsValue");
 const voltInput = document.getElementById("voltInput");
 const ampInput = document.getElementById("ampInput");
 const batteryInput = document.getElementById("batteryInput");
@@ -62,6 +63,12 @@ function highlightCell() {
     } else {
       cell.classList.remove("highlight");
     }
+    if (!isNaN(amp) && !isNaN(volt)) {
+  const power = amp * volt;
+  wattsValue.textContent = power;
+} else {
+  wattsValue.textContent = "–";
+}
   });
 }
 
