@@ -5,41 +5,53 @@
   <title>Візуалізація зарядки</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 <body>
-  <div class="container">
-    <section class="power-section">
-      <h2>🔌 Вхідні значення</h2>
-      <label>Вольтаж (V):
-        <input type="number" id="voltInput" min="200" max="240" step="1" placeholder="220" />
-      </label>
-      <label>Ампери (A):
-        <input type="number" id="ampInput" min="5" max="20" step="1" placeholder="10" />
+  <main class="container">
+    <section class="card">
+      <h2>🔌 Вхідні параметри</h2>
+
+      <label>
+        Вольтаж (V):
+        <input type="number" id="voltInput" placeholder="220" min="200" max="240" />
+        <small>Зазвичай 220 В у побутовій мережі</small>
       </label>
 
-      <table id="powerTable">
-        <thead>
-          <tr>
-            <th>V / A</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <label>
+        Сила струму (A):
+        <input type="number" id="ampInput" placeholder="16" min="5" max="20" />
+        <small>Залежить від зарядного кабелю (5–20 А)</small>
+      </label>
+
+      <div class="table-wrapper">
+        <table id="powerTable">
+          <thead>
+            <tr><th>V / A</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </section>
 
-    <section class="range-section">
-      <h2>🔋 Пробіг</h2>
-      <label>Заряд батареї (кВт·год):
-        <input type="number" id="batteryInput" min="1" max="100" step="0.1" placeholder="50" />
+    <section class="card">
+      <h2>🔋 Розрахунок пробігу</h2>
+
+      <label>
+        Заряд батареї (кВт·год):
+        <input type="number" id="batteryInput" placeholder="50" min="1" max="100" step="0.1" />
+        <small>Введіть залишок енергії в батареї</small>
       </label>
 
       <div class="range-widget">
-        <p>🧘 Chill (~180 Вт/км): <strong id="rangeChill">–</strong></p>
+        <p>🍃 Chill (~180 Вт/км): <strong id="rangeChill">–</strong></p>
         <p>🚗 Normal (~220 Вт/км): <strong id="rangeNormal">–</strong></p>
         <p>🏎️ Агресивно (250+ Вт/км): <strong id="rangeSport">–</strong></p>
       </div>
+
+      <p class="note">⚙️ Коефіцієнт ефективності зарядки: 95%</p>
     </section>
-  </div>
+  </main>
 
   <script src="main.js"></script>
 </body>
