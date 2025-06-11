@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>Візуалізація Зарядки</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Візуалізація зарядки</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>👋</h1>
-  <p>Це мій простий сайт для візуалізації зарядки електромобіля.</p>
+  <div class="container">
+    <section class="power-section">
+      <h2>🔌 Вхідні значення</h2>
+      <label>Вольтаж (V):
+        <input type="number" id="voltInput" min="200" max="240" step="1" placeholder="220" />
+      </label>
+      <label>Ампери (A):
+        <input type="number" id="ampInput" min="5" max="20" step="1" placeholder="10" />
+      </label>
+
+      <table id="powerTable">
+        <thead>
+          <tr>
+            <th>V / A</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="range-section">
+      <h2>🔋 Пробіг</h2>
+      <label>Заряд батареї (кВт·год):
+        <input type="number" id="batteryInput" min="1" max="100" step="0.1" placeholder="50" />
+      </label>
+
+      <div class="range-widget">
+        <p>🧘 Chill (~180 Вт/км): <strong id="rangeChill">–</strong></p>
+        <p>🚗 Normal (~220 Вт/км): <strong id="rangeNormal">–</strong></p>
+        <p>🏎️ Агресивно (250+ Вт/км): <strong id="rangeSport">–</strong></p>
+      </div>
+    </section>
+  </div>
 
   <script src="main.js"></script>
 </body>
