@@ -9,7 +9,7 @@
 </head>
 <body>
   <main class="container">
-    <section class="card">
+    <section class="card left-side">
       <h2>🔌 Вхідні параметри</h2>
 
       <label>
@@ -24,8 +24,8 @@
         <small>Типовий діапазон — 5–20 А</small>
       </label>
 
-      <div class="table-scroll">
-        <div class="table-wrapper">
+      <div class="table-container">
+        <div class="table-scroll" id="tableScroll">
           <table id="powerTable">
             <thead><tr><th>V / A</th></tr></thead>
             <tbody></tbody>
@@ -34,7 +34,7 @@
       </div>
     </section>
 
-    <section class="card">
+    <section class="card right-side">
       <h2>🔋 Розрахунок пробігу</h2>
 
       <p class="battery-info">Ємність батареї: <strong>73 кВт·год</strong> (Tesla Model Y LR 2020)</p>
