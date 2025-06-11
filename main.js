@@ -11,19 +11,26 @@ const rangeSport = document.getElementById("rangeSport");
 function buildTable() {
   const tbody = document.querySelector("#powerTable tbody");
   const thead = document.querySelector("#powerTable thead tr");
-  for (let v = 200; v <= 240; v++) {
+
+  // Очистити таблицю
+  thead.innerHTML = "<th>V / A</th>";
+  tbody.innerHTML = "";
+
+  // Додати ампери у заголовки стовпців
+  for (let a = 5; a <= 20; a++) {
     const th = document.createElement("th");
-    th.textContent = v;
+    th.textContent = a;
     thead.appendChild(th);
   }
 
-  for (let a = 5; a <= 20; a++) {
+  // Для кожного вольта — новий рядок
+  for (let v = 200; v <= 240; v++) {
     const row = document.createElement("tr");
     const label = document.createElement("th");
-    label.textContent = a;
+    label.textContent = v;
     row.appendChild(label);
 
-    for (let v = 200; v <= 240; v++) {
+    for (let a = 5; a <= 20; a++) {
       const cell = document.createElement("td");
       const watts = v * a;
       cell.textContent = watts;
@@ -31,9 +38,11 @@ function buildTable() {
       cell.setAttribute("data-volt", v);
       row.appendChild(cell);
     }
+
     tbody.appendChild(row);
   }
 }
+
 
 function highlightCell() {
   const amp = parseInt(ampInput.value);
