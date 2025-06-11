@@ -15,32 +15,40 @@
       <label>
         Вольтаж (V):
         <input type="number" id="voltInput" placeholder="220" min="200" max="240" />
-        <small>Зазвичай 220 В у побутовій мережі</small>
+        <small>Типове значення — 220 В</small>
       </label>
 
       <label>
         Сила струму (A):
         <input type="number" id="ampInput" placeholder="16" min="5" max="20" />
-        <small>Залежить від зарядного кабелю (5–20 А)</small>
+        <small>Типовий діапазон — 5–20 А</small>
       </label>
 
-      <div class="table-wrapper">
-        <table id="powerTable">
-          <thead>
-            <tr><th>V / A</th></tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+      <div class="table-scroll">
+        <div class="table-wrapper">
+          <table id="powerTable">
+            <thead><tr><th>V / A</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
       </div>
     </section>
 
     <section class="card">
       <h2>🔋 Розрахунок пробігу</h2>
 
+      <p class="battery-info">Ємність батареї: <strong>73 кВт·год</strong> (Tesla Model Y LR 2020)</p>
+
       <label>
-        Заряд батареї (кВт·год):
-        <input type="number" id="batteryInput" placeholder="50" min="1" max="100" step="0.1" />
-        <small>Введіть залишок енергії в батареї</small>
+        Заряд (кВт·год):
+        <input type="number" id="batteryInput" placeholder="36.5" min="0" max="73" step="0.1" />
+        <small>Поточний заряд батареї</small>
+      </label>
+
+      <label>
+        Заряд (%):
+        <input type="number" id="batteryPercent" placeholder="50" min="0" max="100" step="1" />
+        <small>Альтернатива — введіть у відсотках</small>
       </label>
 
       <div class="range-widget">
@@ -51,28 +59,6 @@
 
       <p class="note">⚙️ Коефіцієнт ефективності зарядки: 95%</p>
     </section>
-    <!-- фрагмент всередині section.card (розрахунок пробігу) -->
-<section class="card">
-  <h2>🔋 Розрахунок пробігу</h2>
-
-  <p class="battery-info">Ємність батареї: <strong>73 кВт·год</strong> (Tesla Model Y LR 2020)</p>
-
-  <label>
-    Заряд батареї (кВт·год):
-    <input type="number" id="batteryInput" placeholder="36.5" min="1" max="73" step="0.1" />
-    <small>Скільки наразі є в батареї</small>
-  </label>
-
-  <div class="range-widget">
-    <p>🔋 Поточний заряд: <strong id="percentCharge">–</strong></p>
-    <p>🍃 Chill (~180 Вт/км): <strong id="rangeChill">–</strong></p>
-    <p>🚗 Normal (~220 Вт/км): <strong id="rangeNormal">–</strong></p>
-    <p>🏎️ Агресивно (250+ Вт/км): <strong id="rangeSport">–</strong></p>
-  </div>
-
-  <p class="note">⚙️ Коефіцієнт ефективності зарядки: 95%</p>
-</section>
-
   </main>
 
   <script src="main.js"></script>
