@@ -80,12 +80,13 @@ small {
 }
 
 .table-container {
-  max-height: 350px;
-  overflow: hidden;
+  max-height: 300px;
+  overflow: auto;
   border: 1px solid #ccc;
   border-radius: 10px;
   background: #fefefe;
 }
+
 
 .table-scroll {
   overflow-x: auto;
